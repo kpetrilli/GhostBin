@@ -18,7 +18,7 @@ func NewLogger(logFilePath string, text ...bool) *slog.Logger {
 		// Open the log file for writing, creating it if it doesn't exist
 		file, err := os.OpenFile(logFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
-			slog.Error("failed to open log file: %v", "error", err)
+			slog.Error("failed to open log file:", "error", err)
 			os.Exit(1)
 		}
 		writer = file
