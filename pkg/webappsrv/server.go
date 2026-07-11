@@ -16,9 +16,11 @@ func newServer() *http.Server {
 	if p := os.Getenv("PORT"); p != "" {
 		port = p
 	}
-  host := "localhost"
-	if h := os.Getenv("HOST"); h != "" {
-    host = h
+
+	host, err := os.Hostname()
+	h := os.Getenv("HOST")
+	if h != "" && err == nil {
+		host = h
 	}
 
 	return &http.Server{
@@ -31,10 +33,10 @@ func newServer() *http.Server {
 
 func SetupRouter(pasteSrv *services.PasteService, fileSrv *services.FileService, logger *slog.Logger) http.Handler {
 
-  gbinHandlerSrv := handlers.NewHttpHandler(pasteSrv, fileSrv, logger)
-  gbinHandler := gbinHandlerSrv.SetupRoutesWithLogging()
+	gbinHandlerSrv := handlers.NewHttpHandler(pasteSrv, fileSrv, logger)
+	gbinHandler := gbinHandlerSrv.SetupRoutesWithLogging()
 
-  return gbinHandler
+	return gbinHandler
 }
 
 func RunServer(pasteSrv *services.PasteService, fileSrv *services.FileService, logger *slog.Logger) {
