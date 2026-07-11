@@ -203,10 +203,15 @@ go build -o ghostbin -ldflags="-w -s" ./cmd/webapp/main.go
 useradd --system ghostbin --home-dir /var/ghostbin --create-home --shell /usr/bin/nologin
 usermod --lock ghostbin
 install --mode 755 ghostbin /usr/local/bin/ghostbin
+<<<<<<< HEAD
 install --mode 644 systemd/ghostbin.service /etc/systemd/system/ghostbin.service
 cp --recursive public /var/ghostbin/public
 chown --recursive ghostbin:ghostbin /var/ghostbin
 mkdir /var/log/ghostbin     # Optional, will log to stdout if failed
+=======
+cp --recursive public /var/ghostbin/public
+chown --recursive ghostbin:ghostbin /var/ghostbin
+>>>>>>> dev
 ```
 
 ### Docker Compose
