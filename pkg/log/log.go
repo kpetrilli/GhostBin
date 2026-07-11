@@ -1,7 +1,6 @@
 package log
 
 import (
-	"log"
 	"log/slog"
 	"os"
 )
@@ -11,7 +10,8 @@ func NewLogger(logFilePath string, text ...bool) *slog.Logger {
 	// Open the log file for writing, creating it if it doesn't exist
 	file, err := os.OpenFile(logFilePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Fatalf("failed to open log file: %v", err)
+		slog.Error("failed to open log file: %v", "error", err)
+		os.Exit(1)
 	}
 
 	// Check if the log format should be text or JSON
