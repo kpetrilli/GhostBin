@@ -26,7 +26,7 @@ var (
 
 func main() {
 	if uploadDir == "" {
-		uploadDir = "/var/tmp" // Using systemd PrivateTmp
+		uploadDir = "/var/tmp" // Assuming systemd PrivateTmp
 	}
 
 	var logAsText bool = true
