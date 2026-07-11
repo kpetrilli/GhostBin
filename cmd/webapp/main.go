@@ -46,7 +46,10 @@ func main() {
 	redisConn, err := redis.NewConnectionFromEnvVar()
 
 	if err != nil {
-		logger.Error("failed to connect to redis database", slog.String("err", err.Error()))
+		logger.Error(
+			"failed to connect to redis database",
+			slog.String("err", err.Error()),
+		)
 		return
 	}
 	defer func() {
