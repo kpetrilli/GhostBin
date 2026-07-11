@@ -24,6 +24,10 @@ func NewConnectionFromEnvVar() (*redis.Client, error) {
 	password := os.Getenv("REDIS_PASSWORD")
 	db, err := strconv.Atoi(os.Getenv("REDIS_DB_NUMBER"))
 
+	if address == "" {
+		address = "localhost:6379"
+	}
+
 	if err != nil {
 		return nil, fmt.Errorf("Redis DB number error: %s", err.Error())
 	}
