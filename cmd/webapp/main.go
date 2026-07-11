@@ -25,10 +25,6 @@ var (
 )
 
 func main() {
-	if uploadDir == "" {
-		uploadDir = "/var/tmp" // Assuming systemd PrivateTmp
-	}
-
 	var logAsText bool = true
 	if logAsTextStr == "false" {
 		logAsText = false
@@ -38,6 +34,11 @@ func main() {
 	logger.Info("starting service",
 		slog.String("release_mode", os.Getenv("RELEASE_MODE")),
 	)
+
+	if uploadDir == "" {
+		uploadDir = "/var/tmp" // Assuming systemd PrivateTmp
+		slog.Info("No upload directory provided, defaulting to", "directory", uploadDir)
+	}
 
 	redisConn, err := redis.NewConnectionFromEnvVar()
 
