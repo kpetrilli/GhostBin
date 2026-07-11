@@ -29,6 +29,10 @@ func main() {
 		uploadDir = "/var/tmp" // Using systemd PrivateTmp
 	}
 
+	if logFilePath == "" {
+		logFilePath = "/var/log/ghostbin.log"
+	}
+
 	var logAsText bool = true
 	if logAsTextStr == "false" {
 		logAsText = false
