@@ -8,7 +8,7 @@ import (
 
 	"github.com/0x30c4/ghostbin/internal/services"
 	"github.com/0x30c4/ghostbin/pkg/webappsrv/handlers"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 func newServer() *http.Server {

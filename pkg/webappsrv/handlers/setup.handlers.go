@@ -3,7 +3,7 @@ package handlers
 import (
 	"github.com/0x30c4/ghostbin/internal/services"
 	"github.com/0x30c4/ghostbin/pkg/webappsrv/middleware"
-	"golang.org/x/exp/slog"
+	"log/slog"
 	"net/http"
 )
 

@@ -1,8 +1,8 @@
 package log
 
 import (
-	"golang.org/x/exp/slog"
 	"log"
+	"log/slog"
 	"os"
 )
 
