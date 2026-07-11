@@ -25,6 +25,10 @@ var (
 )
 
 func main() {
+	if uploadDir == "" {
+		uploadDir = "/var/tmp" // Using systemd PrivateTmp
+	}
+
 	var logAsText bool = true
 	if logAsTextStr == "false" {
 		logAsText = false
