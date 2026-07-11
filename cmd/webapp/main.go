@@ -9,7 +9,7 @@ import (
 	"github.com/0x30c4/ghostbin/pkg/redis"
 	"github.com/0x30c4/ghostbin/pkg/webappsrv"
 	_ "github.com/joho/godotenv/autoload"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 var (
