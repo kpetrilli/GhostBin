@@ -36,7 +36,7 @@ func main() {
 
 	if uploadDir == "" {
 		uploadDir = "/var/tmp" // Assuming systemd PrivateTmp
-		slog.Info("No upload directory provided, defaulting to", "directory", uploadDir)
+		slog.Info("No upload directory provided, defaulting to", slog.String("directory", uploadDir))
 	}
 
 	redisConn, err := redis.NewConnectionFromEnvVar()
