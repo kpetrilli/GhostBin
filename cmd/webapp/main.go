@@ -8,7 +8,6 @@ import (
 	"github.com/0x30c4/ghostbin/pkg/log"
 	"github.com/0x30c4/ghostbin/pkg/redis"
 	"github.com/0x30c4/ghostbin/pkg/webappsrv"
-	_ "github.com/joho/godotenv/autoload"
 	"log/slog"
 )
 
